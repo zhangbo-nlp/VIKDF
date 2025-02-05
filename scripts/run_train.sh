@@ -1,0 +1,29 @@
+NCCL_P2P_DISABLE=1 NCCL_IB_DISABLE=1 deepspeed --num_gpus=2 train.py \
+    --output_dir "outputs/zrigf2" \
+    --clip_model_name_or_path "openai/clip-vit-large-patch14" \
+    --qformer_name_or_path "bert-base-uncased" \
+    --language_model_name_or_path "meta-llama/Llama-2-7b-chat-hf" \
+    --dataset_name="coco,ccs" \
+    --remove_unused_columns=False \
+    --do_train  --do_eval \
+    --dispatch_batches=False \
+    --per_device_train_batch_size="4" \
+    --per_device_eval_batch_size="16" \
+    --gradient_accumulation_steps="16" \
+    --learning_rate="1e-4" --warmup_ratio=0.1 --weight_decay 0.05 \
+    --lr_scheduler_type='constant_with_warmup' \
+    --dataloader_num_workers="8" \
+    --max_steps="100000" \
+    --save_steps="10000" \
+    --save_total_limit="2" \
+    --evaluation_strategy="steps" \
+    --eval_steps="10000" \
+    --load_best_model_at_end=True \
+    --metric_for_best_model="eval_loss" \
+    --overwrite_output_dir \
+    --low_cpu_mem_usage=True \
+    --tf32=True \
+    --bf16=True \
+    --deepspeed="configs/ds_config_zero1.json" \
+    --ddp_find_unused_parameters=False \
+    --seed 42

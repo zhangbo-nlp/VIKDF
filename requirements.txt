@@ -1,0 +1,9 @@
+datasets~=2.18.0
+torch~=2.2.1
+transformers~=4.39.3
+nltk~=3.8.1
+numpy~=1.26.2
+webdataset~=0.2.83
+accelerate~=0.27.2
+tqdm~=4.66.1
+torchvision~=0.17.1
