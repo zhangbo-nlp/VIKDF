@@ -69,6 +69,7 @@ If you use any source code included in this repo in your work, please cite the f
 @article{ZHANG2025102985,
     title = {Distilling implicit multimodal knowledge into large language models for zero-resource dialogue generation},
     journal = {Information Fusion},
+    volume = {118},
     pages = {102985},
     year = {2025},
     issn = {1566-2535},
